@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rashidiya Convent School | Baltana, SAS Nagar</title>
+    <style>
+        /* General Reset & Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Header Navigation */
+        header {
+            background-color: #1a365d; /* Elegant deep blue for the school theme */
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo-container h1 {
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+        }
+        .logo-container p {
+            font-size: 0.85rem;
+            color: #cbd5e0;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #fbd38d; /* Warm gold accent */
+        }
+
+        /* Hero Banner Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #fbd38d;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: #e53e3e;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .cta-btn:hover {
+            background-color: #c53030;
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Grid Layout for Main Info and Notice Board */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        @media(max-width: 768px) {
+            .main-layout { grid-template-columns: 1fr; }
+            header { flex-direction: column; text-align: center; }
+            nav ul { margin-top: 15px; }
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+        .card h3 {
+            color: #1a365d;
+            border-bottom: 2px solid #fbd38d;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Highlights Grid */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        @media(max-width: 500px) { .highlights { grid-template-columns: 1fr; } }
+        .highlight-box {
+            background-color: #ebf8ff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            border-left: 4px solid #3182ce;
+        }
+
+        /* Notice Board Widget */
+        .notice-board {
+            background: #fffaf0;
+            border: 1px solid #feebc8;
+        }
+        .notice-list {
+            list-style: none;
+        }
+        .notice-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            font-size: 0.95rem;
+        }
+        .notice-list li:last-child { border-bottom: none; }
+        .badge {
+            background-color: #dd6b20;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        /* NEW: Photo Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 200px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            background: rgba(26, 54, 93, 0.85);
+            color: white;
+            width: 100%;
+            padding: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* NEW: Admission Enquiry Form Section */
+        .enquiry-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media(max-width: 768px) { .enquiry-form { grid-template-columns: 1fr; } }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+        }
+        .submit-btn {
+            background-color: #2b6cb0;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background-color: #2c5282;
+        }
+
+        /* Contact Details Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media(max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+
+        /* Footer */
+        footer {
+            background-color: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar Section -->
+    <header>
+        <div class="logo-container">
+            <h1>Rashidiya Convent School</h1>
+            <p>Baltana, SAS Nagar (Mohali), Punjab</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#enquiry">Enquiry</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+        <h2>Nurturing Excellence, Inspiring Futures</h2>
+        <p>Welcome to Rashidiya Convent School. We provide a collaborative, comprehensive, and vibrant educational experience rooted in core moral values.</p>
+        <a href="#enquiry" class="cta-btn">Submit Online Enquiry</a>
+    </section>
+
+    <!-- Main Dynamic Layout -->
+    <div class="container main-layout">
+        
+        <!-- Left Side: Core Information -->
+        <main>
+            <section id="about" class="card">
+                <h3>Welcome to Our Campus</h3>
+                <p>Established in 2015, <strong>Rashidiya Convent School</strong> is dedicated to fostering an atmosphere that encourages academic achievement, character development, and healthy community traits in every child.</p>
+                
+                <div class="highlights">
+                    <div class="highlight-box">
+                        <strong>Co-Educational</strong>
+                        <p style="font-size: 0.85rem; color:#4a5568; margin-top:5px;">Kindergarten to Upper Primary</p>
+                    </div>
+                    <div class="highlight-box">
+                        <strong>~ 19:1 Ratio</strong>
+                        <p style="font-size: 0.85rem; color:#4a5568; margin-top:5px;">Focused Student-Teacher Care</p>
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Experienced Staff</strong>
+                        <p style="font-size: 0.85rem; color:#4a5568; margin-top:5px;">Dedicated and Caring Faculty</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side: Sidebar Notice Board -->
+        <aside>
+            <div class="card notice-board">
+                <h3>Latest Notices</h3>
+                <ul class="notice-list">
