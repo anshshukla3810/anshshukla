@@ -314,3 +314,211 @@
             <div class="card notice-board">
                 <h3>Latest Notices</h3>
                 <ul class="notice-list">
+<!-- ========================================== -->
+<!-- START OF ADMISSION FORM & GALLERY ADDITION -->
+<!-- ========================================== -->
+
+<!-- Isolated Styling for Form and Gallery Elements -->
+<style>
+    .section-wrapper-custom {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+    }
+    .section-wrapper-custom * {
+        box-sizing: border-box;
+    }
+    
+    /* Admission Form Elements */
+    .form-section-custom { 
+        background: #ffffff; 
+        padding: 30px; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+        margin-bottom: 50px; 
+        border-top: 4px solid #0056b3;
+    }
+    .form-section-custom h2 {
+        color: #0056b3;
+        margin-bottom: 25px;
+        font-size: 24px;
+    }
+    .form-grid-custom { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+        gap: 20px; 
+        margin-bottom: 20px; 
+    }
+    .form-group-custom { 
+        display: flex; 
+        flex-direction: column; 
+    }
+    .form-group-custom label { 
+        margin-bottom: 8px; 
+        font-weight: 600; 
+        color: #444; 
+        font-size: 14px;
+    }
+    .form-group-custom input, 
+    .form-group-custom select, 
+    .form-group-custom textarea { 
+        padding: 12px; 
+        border: 1px solid #ccc; 
+        border-radius: 4px; 
+        font-size: 16px; 
+        width: 100%;
+        background-color: #fafafa;
+    }
+    .form-group-custom input:focus, 
+    .form-group-custom select:focus, 
+    .form-group-custom textarea:focus { 
+        border-color: #0056b3; 
+        background-color: #fff;
+        outline: none; 
+    }
+    .submit-btn-custom { 
+        background-color: #0056b3; 
+        color: white; 
+        border: none; 
+        padding: 14px 28px; 
+        font-size: 18px; 
+        font-weight: bold; 
+        border-radius: 4px; 
+        cursor: pointer; 
+        transition: background 0.3s; 
+        width: 100%; 
+        margin-top: 10px;
+    }
+    .submit-btn-custom:hover { 
+        background-color: #003d80; 
+    }
+
+    /* Image Gallery Elements */
+    .gallery-section-custom { 
+        background: #ffffff; 
+        padding: 30px; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+        border-top: 4px solid #28a745;
+    }
+    .gallery-title-custom { 
+        color: #333; 
+        margin-bottom: 25px; 
+        font-size: 24px;
+    }
+    .gallery-grid-custom { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+        gap: 20px; 
+    }
+    .gallery-item-custom { 
+        position: relative; 
+        overflow: hidden; 
+        border-radius: 6px; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+        background: #eee; 
+    }
+    .gallery-item-custom img { 
+        width: 100%; 
+        height: 220px; 
+        object-fit: cover; 
+        display: block; 
+        transition: transform 0.3s ease; 
+    }
+    .gallery-item-custom:hover img { 
+        transform: scale(1.05); 
+    }
+    .gallery-caption-custom { 
+        padding: 12px; 
+        background: white; 
+        text-align: center; 
+        font-weight: 500; 
+        font-size: 15px;
+        color: #555;
+        border-top: 1px solid #eee; 
+    }
+</style>
+
+<div class="section-wrapper-custom">
+
+    <!-- 1. Admission Form Block -->
+    <section class="form-section-custom">
+        <h2>Student Admission Form</h2>
+        <form action="mailto:admissions@yourdomain.com" method="post" enctype="text/plain">
+            <div class="form-grid-custom">
+                <div class="form-group-custom">
+                    <label for="studentName">Student Full Name *</label>
+                    <input type="text" id="studentName" name="Student Name" required placeholder="John Doe">
+                </div>
+                <div class="form-group-custom">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" name="DOB" required>
+                </div>
+                <div class="form-group-custom">
+                    <label for="grade">Seeking Grade/Class *</label>
+                    <select id="grade" name="Seeking Grade" required>
+                        <option value="">Select an option</option>
+                        <option value="Preschool">Preschool / Kindergarten</option>
+                        <option value="Elementary">Elementary School</option>
+                        <option value="Middle School">Middle School</option>
+                        <option value="High School">High School</option>
+                    </select>
+                </div>
+                <div class="form-group-custom">
+                    <label for="parentEmail">Parent/Guardian Email *</label>
+                    <input type="email" id="parentEmail" name="Parent Email" required placeholder="parent@example.com">
+                </div>
+            </div>
+            <div class="form-group-custom" style="margin-bottom: 20px;">
+                <label for="comments">Additional Remarks / Medical Notes</label>
+                <textarea id="comments" name="Additional Remarks" rows="4" placeholder="Enter any specific requirements or information..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn-custom">Submit Application Via Email</button>
+        </form>
+    </section>
+
+    <!-- 2. Image Gallery Block -->
+    <section class="gallery-section-custom">
+        <h2 class="gallery-title-custom">Campus & Student Life Gallery</h2>
+        <div class="gallery-grid-custom">
+            
+            <div class="gallery-item-custom">
+                <img src="https://unsplash.com" alt="School Campus">
+                <div class="gallery-caption-custom">School Campus & Infrastructure</div>
+            </div>
+
+            <div class="gallery-item-custom">
+                <img src="https://unsplash.com" alt="Classroom Learning">
+                <div class="gallery-caption-custom">Interactive Classroom Learning</div>
+            </div>
+
+            <div class="gallery-item-custom">
+                <img src="https://unsplash.com" alt="School Events">
+                <div class="gallery-caption-custom">Annual Events & Assemblies</div>
+            </div>
+
+            <div class="gallery-item-custom">
+                <img src="https://unsplash.com" alt="Sports Grounds">
+                <div class="gallery-caption-custom">Sports & Outdoor Recreation</div>
+            </div>
+
+            <div class="gallery-item-custom">
+                <img src="https://unsplash.com" alt="Science Lab">
+                <div class="gallery-caption-custom">Science & Innovation Lab</div>
+            </div>
+
+            <div class="gallery-item-custom">
+                <img src="https://unsplash.com" alt="Arts Studio">
+                <div class="gallery-caption-custom">Creative Arts & Crafts Studio</div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- ========================================== -->
+<!--  END OF ADMISSION FORM & GALLERY ADDITION  -->
+<!-- ========================================== -->
